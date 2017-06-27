@@ -3,6 +3,7 @@ package com.example.android.savecomments;
 import android.app.ListActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
@@ -34,8 +35,9 @@ private  CommentsDb db;
         switch (view.getId()){
         case R.id.add_new_button:
         {
-            String cmt[] =new String[] { "Good", "Bad", "Excellent!", "Average"};
-            int nextInt = new Random().nextInt(3);
+            String cmt[] ={ "Good", "Bad", "Excellent!", "Average"};
+            int nextInt = new Random().nextInt(4);
+            Log.v(".java ",cmt[nextInt]);
             comment = db.createComment(cmt[nextInt]);
             adapter.add(comment);
             break;}

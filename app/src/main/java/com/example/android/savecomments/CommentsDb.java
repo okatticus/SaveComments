@@ -39,7 +39,7 @@ public class CommentsDb {
         values.put(MySQLiteHelper.COLUMN_COMMENT, comment);
         long insertID= database.insert(MySQLiteHelper.TABLE_NAME, null, values);
         Cursor cursor = database.query(
-                MySQLiteHelper.TABLE_NAME,
+                MySQLiteHelper.TABLE_NAME, // Db name
                 cols,
                 MySQLiteHelper.COLUMN_ID + " = "+ insertID,
                 null,
@@ -79,6 +79,7 @@ public class CommentsDb {
     private Comment cursorToComment(Cursor cursor){
         Comment comment = new Comment();
         comment.storeId(cursor.getLong(0));
-        comment.storeComment(cursor.getString(1));
+        comment.storeComment(cursor.getString(cursor.getColumnIndex("COMMENT")));
+        Log.v("CommentsDb.java",cursor.getString(cursor.getColumnIndex("COMMENT")));
     return comment;}
 }

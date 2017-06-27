@@ -15,7 +15,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "COMMENTS";
     public static final String COLUMN_ID = "_id";
-    public static final String COLUMN_COMMENT = "COLUMN";
+    public static final String COLUMN_COMMENT = "COMMENT";
     public MySQLiteHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
