@@ -44,6 +44,7 @@ private  CommentsDb db;
             case R.id.delete_button:{
                 if(getListAdapter().getCount() > 0) {
                     comment = (Comment) getListAdapter().getItem(0);
+                    Log.v("Delete button log: ",comment.toString());
                     db.deleteComment(comment);
                     adapter.remove(comment);
                 }

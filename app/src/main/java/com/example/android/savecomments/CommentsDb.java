@@ -78,7 +78,7 @@ public class CommentsDb {
     return comments;}
     private Comment cursorToComment(Cursor cursor){
         Comment comment = new Comment();
-        comment.storeId(cursor.getLong(0));
+        comment.storeId(cursor.getLong(cursor.getColumnIndex("_ID")));
         comment.storeComment(cursor.getString(cursor.getColumnIndex("COMMENT")));
         Log.v("CommentsDb.java",cursor.getString(cursor.getColumnIndex("COMMENT")));
     return comment;}
